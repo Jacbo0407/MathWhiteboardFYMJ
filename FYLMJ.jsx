@@ -2,12 +2,10 @@ import './App.css';
 import React, { useRef, useEffect, useState } from 'react';
 //import Container from './components/container/Container';
 
-export default class App extends React.Component() {
-  constructor() {
-    let canvasRef = useRef(null)
-    let contextRef = useRef(null)
-    let[isDrawing, setIsDrawing] = useState(false)
-
+export default App => {
+  let canvasRef = useRef(null)
+  let contextRef = useRef(null)
+  let[isDrawing, setIsDrawing] = useState(false)
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -43,13 +41,11 @@ export default class App extends React.Component() {
     contextRef.current.stroke()
     
   }
-  }
-  render() {
-    return (<canvas onMouseDown={startDrawing}
-      onMouseDown={finishDrawing}
-      onMouseDown={draw}
-      ref={canvasRef}
-      />
-    );
-  }
+
+  return (<canvas onMouseDown={startDrawing}
+    onMouseDown={finishDrawing}
+    onMouseDown={draw}
+    ref={canvasRef}
+    />
+  );
 }
